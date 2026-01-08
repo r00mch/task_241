@@ -18,5 +18,15 @@ sudo ss -tlnp | grep ssh
 # 5.Подключение к предоставленному серверу
 ssh student@ternar.io -p 231
 <img width="738" height="108" alt="image" src="https://github.com/user-attachments/assets/b2e3bae5-5205-4904-a449-33241d9197d9" />
-# 6.Разрешение подключения под root
-
+# 6 - 7 .Разрешение подключения под root и ввод пароля три раза
+Залез в файл с помощью vi, нажал на i - режим реактирования. Отредактировал строки PermitRootLogin и MAxAuthTries, потом перезапустил ssh
+<img width="1029" height="92" alt="image" src="https://github.com/user-attachments/assets/9967bc74-3085-47be-8ca8-0bb8e723c856" />
+# 8. Добавление ssh user 
+Добавил нового пользователя через adduser 
+Создал пасс 
+попытался зайти как ssh user 
+<img width="637" height="77" alt="image" src="https://github.com/user-attachments/assets/cea18f07-b6c1-438e-a246-beca07dc00bf" />
+# 9-10. Ограничение доступа к серваку 
+Зашел на сервер как студент, открыл файл конфигурации в конце него добавил строку DenyUsers ssh-user, теперь после попыток входа на серв как ссх юзер нас не пускает <img width="548" height="120" alt="image" src="https://github.com/user-attachments/assets/009d53d5-87f0-4466-b1d2-924b8cb8120a" />
+# 10. Что хранится в файле known_hosts?
+Этот файл на клиентской машине хранит отпечатки ключей (fingerprints) серверов, к которым вы подключались. При первом подключении к серверу SSH сохраняет его уникальный ключ в этот файл. При последующих подключениях клиент сверяет полученный ключ с сохраненным. Если ключ изменился (возможно, атака "man-in-the-middle" или сервер был переустановлен), SSH выдаст предупреждение. Это защищает от перехвата трафика
